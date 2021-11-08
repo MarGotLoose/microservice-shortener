@@ -13,14 +13,15 @@ import (
 	mr "microservice-shortener/repository/mongo"
 	"microservice-shortener/shortener"
 
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/joho/godotenv"
 )
 
 func main() {
 	err := godotenv.Load()
-	if err != nil {
+	_, localEnvSetted := os.LookupEnv("MONGO_URL")
+	if err != nil && localEnvSetted == false {
 		log.Fatal("Error loading .env file")
 	}
 	repo := chooseRepo()
@@ -33,7 +34,7 @@ func main() {
 	r.Use(middleware.Recoverer)
 
 	r.Get("/{code}", handler.Get)
-	r.Post("/}", handler.Post)
+	r.Post("/", handler.Post)
 
 	errs := make(chan error, 2)
 	go func() {

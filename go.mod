@@ -1,10 +1,11 @@
 module microservice-shortener
+// +heroku goVersion go1.17.2
 
 go 1.17
 
 require (
 	github.com/go-chi/chi v1.5.4 // indirect
-	github.com/go-chi/chi/v5 v5.0.4 // indirect
+	github.com/go-chi/chi/v5 v5.0.5 // indirect
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/joho/godotenv v1.4.0 // indirect
