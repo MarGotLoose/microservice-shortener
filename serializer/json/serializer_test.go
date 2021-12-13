@@ -17,7 +17,7 @@ var (
 		CreatedAt: 0,
 	}
 	inputRaw = []byte(fmt.Sprintf(
-		`{"Code":"%s","url":"%s","created_at":%d}`,
+		`{"code":"%s","url":"%s","created_at":%d}`,
 		input.Code,
 		input.URL,
 		input.CreatedAt,
